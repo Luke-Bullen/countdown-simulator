@@ -8,9 +8,31 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%# bootstrap is in stylesheets/pages/application.scss %>
   </head>
 
   <body>
+    <div id='navbar' class="text-center">
+      <%= link_to root_path do %>
+        <h1>Worder</h1>
+      <% end %>
+    </div>
     <%= yield %>
+    <!-- JavaScript Bundle with Popper -->
   </body>
 </html>
+
+<%# Future improvements %>
+
+<%# 1) Add a 'Vowel' and 'Consentant' button so that the @letters array is filled by user choice %>
+<%# Done by using JavaScript %>
+
+<%# 2) Have a countdown timer on the page - limit on time to give an answer %>
+<%# Scale the points given based on the time taken - Quicker answer = more points %>
+
+<%# 3) Give the longest possible word that could have been created %>
+<%# More points depending on the ratio of User's input lenght to the longest word length %>
+
+<%# 4) Score keeping for the users session %>
+
+<%# 5) Different weights for letters - eg: 'X' and 'Z' don't appear as often as 'M' %>

@@ -1,0 +1,27 @@
+<div class="body">
+
+  <%# iterate through the letters %>
+  <ul class="letters text-center">
+    <% @letters.shuffle.each do |letter|%>
+    <li><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <h2 class="form-prefix text-center">What's the longest word you can find?</h2>
+
+  <form action="/score" method="POST" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-group">
+      <input type="text" name="input" class="form-control" placeholder="Pickle">
+      <input type="submit" value="Play" class="btn btn-success">
+    </div>
+  </form>
+
+  <div class="text-center reset">
+    <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-success">New Game</button>
+    <% end %>
+  </div>
+
+</div>
