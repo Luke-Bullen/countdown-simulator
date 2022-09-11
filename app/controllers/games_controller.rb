@@ -28,6 +28,8 @@ class GamesController < ApplicationController
   end
 
   def english_word?(word)
+    # takes out spaces form input to run throught the URI.open to run
+    word.gsub!(" ", "")
     response = URI.open("https://wagon-dictionary.herokuapp.com/#{word}")
     json = JSON.parse(response.read)
     json['found']
