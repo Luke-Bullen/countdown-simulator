@@ -1,0 +1,35 @@
+.body {
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+.letters {
+  padding: 32px 0;
+  font-size: 32px;
+  list-style: none;
+  font-family: monospace;
+  li {
+    // background-color: #0d6efd;
+    background-color: $green;
+    color: black;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.702);
+    padding: 4px 12px;
+    display: inline;
+    border-radius: 2px;
+  }
+}
+
+h2 {
+  padding: 32px 0;
+}
+
+form {
+  padding: 32px 0;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.reset {
+  padding: 32px 0px;
+}

@@ -8,13 +8,27 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <%# bootstrap is in stylesheets/pages/application.scss %>
   </head>
 
   <body>
+    <div id='navbar' class="text-center">
+      <%= link_to root_path do %>
+        <h1>Worder</h1>
+      <% end %>
+    </div>
     <%= yield %>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<%# future improvements %>
+
+<%# 1) Add a 'Vowel' and 'Consentant' button so that the @letters array is filled by user choice %>
+<%# Done by using JavaScript %>
+
+<%# 2) Have a countdown timer on the page - limit on time to give an answer %>
+<%# Scale the points given based on the time taken - Quicker answer = more points %>
+
+<%# 3) Give the longest possible word that could have been created %>
+<%# More points depending on the ratio of User's input lenght to the longest word length %>

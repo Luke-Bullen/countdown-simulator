@@ -1,2 +1,24 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<div class="body">
+  <div class="text-center scores">
+    <% if @input == '' %>
+      <p>Try again and input and word</p>
+    <% else %>
+      <% if @included %>
+        <% if @english_word %>
+          <p>Congratulations! '<%= params[:input].capitalize %>' is a valid English word!</p>
+          <p>Score: <%= params[:input].length %></p>
+        <% else %>
+          <p>Sorry but '<%= params[:input].capitalize %>' does not seem to be a valid English word...</p>
+        <% end %>
+      <% else %>
+        <p>Sorry but '<%= params[:input].upcase %>' can't be built out of '<%= @letters.join(", ") %>'</p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="text-center reset">
+    <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-success">New Game</button>
+    <% end %>
+  </div>
+</div>
