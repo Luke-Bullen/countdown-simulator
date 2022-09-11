@@ -3,19 +3,19 @@
     <% if @input == '' %>
       <p>Please type an input - <%= link_to "Try Again", root_path %></p>
     <% else %>
-      <% if @included %>
-        <% if @english_word %>
+      <% if @english_word %>
+        <% if @included %>
           <h3>Congratulations!</h3>
           <p>'<%= params[:input].capitalize %>' is a valid word!</p>
           <p>Score: <%= params[:input].length %></p>
         <% else %>
           <h3>Not Quite!</h3>
-          <p>'<%= params[:input].capitalize %>' does not seem to be a valid English word</p>
+          <p>'<%= params[:input].upcase %>' can't be built from the provided letters</p>
+          <p>'<%= @letters.sort.join(", ") %>'</p>
         <% end %>
       <% else %>
-        <h3>Not Quite!</h3>
-        <p>'<%= params[:input].upcase %>' can't be built from the provided letters</p>
-        <p>'<%= @letters.sort.join(", ") %>'</p>
+          <h3>Not Quite!</h3>
+          <p>'<%= params[:input].capitalize %>' doesn't seem to be a valid English word</p>
       <% end %>
     <% end %>
   </div>
