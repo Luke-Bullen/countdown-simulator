@@ -1,17 +1,21 @@
 <div class="body">
   <div class="text-center scores">
     <% if @input == '' %>
-      <p>Try again and input and word</p>
+      <p>Please type an input - <%= link_to "Try Again", root_path %></p>
     <% else %>
       <% if @included %>
         <% if @english_word %>
-          <p>Congratulations! '<%= params[:input].capitalize %>' is a valid English word!</p>
+          <h3>Congratulations!</h3>
+          <p>'<%= params[:input].capitalize %>' is a valid word!</p>
           <p>Score: <%= params[:input].length %></p>
         <% else %>
-          <p>Sorry but '<%= params[:input].capitalize %>' does not seem to be a valid English word...</p>
+          <h3>Not Quite!</h3>
+          <p>'<%= params[:input].capitalize %>' does not seem to be a valid English word</p>
         <% end %>
       <% else %>
-        <p>Sorry but '<%= params[:input].upcase %>' can't be built out of '<%= @letters.join(", ") %>'</p>
+        <h3>Not Quite!</h3>
+        <p>'<%= params[:input].upcase %>' can't be built from the provided letters</p>
+        <p>'<%= @letters.sort.join(", ") %>'</p>
       <% end %>
     <% end %>
   </div>
